@@ -1,3 +1,6 @@
+import logging
+logging.basicConfig()
+
 from my_commands.imports import *
 
 modules = {
@@ -5,6 +8,7 @@ modules = {
         "apps": [],
         "core": [
             "keys",
+            "alphabet",
         ],
         "languages": [],
     }
