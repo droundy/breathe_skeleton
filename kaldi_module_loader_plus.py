@@ -15,7 +15,7 @@ finds.
 
 from __future__ import print_function
 import os.path
-import logging
+import logging, subprocess
 
 from dragonfly import RecognitionObserver, get_engine
 from dragonfly import Grammar, MappingRule, Function, Dictation, FuncContext
@@ -41,14 +41,9 @@ else:
 # User notification / rudimentary UI. MODIFY AS DESIRED
 
 # For message in ('sleep', 'wake')
-def notify(message):
-    if message == 'sleep':
-        print("Sleeping...")
-        # get_engine().speak("Sleeping")
-    elif message == 'wake':
-        print("Awake...")
-        # get_engine().speak("Awake")
-
+def notify(*text):
+    print(*text)
+    subprocess.run(['notify-send', ' '.join(text)])
 
 # --------------------------------------------------------------------------
 # Sleep/wake grammar.
@@ -63,14 +58,14 @@ def load_sleep_wake_grammar(initial_awake):
         if not sleeping or force:
             sleeping = True
             sleep_grammar.set_exclusiveness(True)
-        notify('sleep')
+        notify('Sleeping...')
 
     def wake(force=False):
         global sleeping
         if sleeping or force:
             sleeping = False
             sleep_grammar.set_exclusiveness(False)
-        notify('wake')
+        notify('Awake...')
 
     class SleepRule(MappingRule):
         mapping = {
@@ -101,10 +96,11 @@ def load_sleep_wake_grammar(initial_awake):
 
 class Observer(RecognitionObserver):
     def on_begin(self):
-        print("Speech started.")
+        # notify("Speech started.")
+        pass
 
     def on_recognition(self, words):
-        print("Recognized:", " ".join(words))
+        notify("Recognized:", " ".join(words))
 
     def on_failure(self):
         print("Sorry, what was that?")
