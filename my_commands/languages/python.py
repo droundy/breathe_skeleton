@@ -13,6 +13,7 @@ mapping = {
     'comma': Text(', '),
     '(ell if|else if)': Text('elif '),
     "snake case [<snaketext>]" : Text("%(snaketext)s"),
+    "screaming snake case [<screamingsnaketext>]" : Text("%(screamingsnaketext)s"),
     "Camel Case [<CamelText>]"  : Text("%(CamelText)s"),
 }
 for k in keywords:
@@ -27,6 +28,7 @@ Breathe.add_commands(
     mapping = mapping,
     extras = [
         Dictation("snaketext", default="").lower().replace(" ", "_"),
+        Dictation("screamingsnaketext", default="").upper().replace(" ", "_"),
         Dictation("CamelText", default="").title().replace(" ", ""),
     ]
 )
