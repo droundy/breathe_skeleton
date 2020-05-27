@@ -8,9 +8,10 @@ modules = {
         "apps": [],
         "core": [
             "keys",
-            "alphabet",
+            "gnome",
+            # "alphanumeric",
         ],
-        "languages": [],
+        "languages": ['python'],
     }
 }
 

@@ -3,9 +3,14 @@ from my_commands.imports import *
 Breathe.add_commands(
     context=None,
     mapping={
-        "hello world [<n>]": Text("Hello world!") * Repeat("n")
+        "<n> left":          Key("left:%(n)d"),
+        "<n> right":         Key("right:%(n)d"),
+        "<n> up":            Key("up:%(n)d"),
+        "<n> down": Key("down:%(n)d"),
+        "[<n>] page down": Key("pgdown:%(n)d"),
+        "[<n>] page up": Key("pgup:%(n)d"),
     },
     extras=[
-        IntegerRef("n", 1, 10, default=1),
+        IntegerRef("n", 1, 100, default=1),
     ]
 )
