@@ -29,42 +29,40 @@ functions = {
    'sine': r'\sin',
    'cosine': r'\cos',
    'tangent': r'\tan',
+   'exponential': r'\exp',
 }
 # fraction sin x ^2squared divided by 3 + x
 #  \frac{\sin(x^2)}{3+x}
-function_mapping = {
-  k:Text('\\'+f+'{') + Exec("expr") + Text('}')
-      for k,f in functions.items()
-}
 Breathe.add_commands(
     context = inline_context,
     mapping = {
-      "frac <expr1> over <expr2>":
+      "<expr1> frac <expr2> over <expr3>":
+          Exec("expr1") + Text("\\frac{") + Exec("expr2") + Text("}{") + Exec("expr3") + Text("}"),
+      "<expr1> over <expr2>":
           Text("\\frac{") + Exec("expr1") + Text("}{") + Exec("expr2") + Text("}"),
-      "of <expr1>":
-          Text("\\left(") + Exec("expr1") + Text("\\right)"),
+      "<expr1> of <expr2>":
+          Exec("expr1") + Text("\\left(") + Exec("expr2") + Text("\\right)"),
+      "<expr1> e to the <expr2>":
+          Exec("expr1") + Text(" e^{") + Exec("expr2") + Text("}"),
     },
     extras = [
         CommandsRef("expr1", 8),
         CommandsRef("expr2", 8),
+        CommandsRef("expr3", 8),
     ],
     top_level=True,
 )
-# Breathe.add_commands(
-#     context = inline_context,
-#     mapping = function_mapping,
-#     extras = [
-#         CommandsRef("expr", 8),
-#     ],
-#     top_level=True,
-# )
 variable = Choice("variable", {
         "psi": r"\psi",
         "phi": r"\phi",
         "big psi": r"\Psi",
         "pi": r"\pi",
+        "i": r" i",
+        "j": r" j",
         "k": r" k",
         "x": r" x",
+        "y": r" y",
+        "z": r" z",
     })
 nth = Choice("nth", {
         "first": "1",
@@ -92,6 +90,9 @@ inline_mapping = {
     '<variable>': Text('%(variable)s'),
     'squared': Text('^2'),
     'plus': Text('+'),
+    'minus': Text('-'),
+    '(times|cross)': Text(r'\times'),
+    'dot': Text(r'\dot'),
     'to the <nth>': Text('^%(nth)s'),
     '<n>': Text('%(n)d'),
 }

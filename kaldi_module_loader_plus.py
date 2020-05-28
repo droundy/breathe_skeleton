@@ -69,7 +69,7 @@ def load_sleep_wake_grammar(initial_awake):
 
     class SleepRule(MappingRule):
         mapping = {
-            "start listening":  Function(wake) + Function(lambda: get_engine().start_saving_adaptation_state()),
+        "start listening":  Function(wake) + Function(lambda: get_engine().start_saving_adaptation_state()),
             "stop listening":   Function(lambda: get_engine().stop_saving_adaptation_state()) + Function(sleep),
             "halt listening":   Function(lambda: get_engine().stop_saving_adaptation_state()) + Function(sleep),
         }
@@ -127,7 +127,7 @@ def main():
         # tmp_dir='kaldi_model_zamia.tmp',  # default for temporary directory
         # vad_aggressiveness=3,  # default aggressiveness of VAD
         # vad_padding_start_ms=300,  # default ms of required silence before VAD
-        # vad_padding_end_ms=100,  # default ms of required silence after VAD
+        vad_padding_end_ms=500,  # default ms of required silence after VAD
         # vad_complex_padding_end_ms=500,  # default ms of required silence after VAD for complex utterances
         # input_device_index=None,  # set to an int to choose a non-default microphone
         # auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
