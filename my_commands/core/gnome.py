@@ -5,6 +5,7 @@ Breathe.add_commands(
     mapping={
         "window emacs": Key('win/20') + Text('emacs\n'),
         "window atom": Key('win/20') + Text('atom\n'),
+        "window web": Key('win/20') + Text('web\n'),
         "window terminal": Key('win/20') + Text('gnome-terminal\n'),
         "window firefox": Key('win/20') + Text('firefox\n'),
         "window chrome": Key('win/20') + Text('chrome\n'),
