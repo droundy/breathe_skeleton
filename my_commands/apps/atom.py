@@ -1,4 +1,4 @@
-from dragonfly import Dictation, AppContext, Text, Key
+from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
 from breathe import Breathe, CommandContext
 
 context = CommandContext("atom")
@@ -16,7 +16,13 @@ Breathe.add_commands(
         'edit redo': Key('cs-z'),
 
         '[<n>] edit indent': Key('c-]:%(n)d'),
-        '[<n>] edit outdent': Key('c-[:%(n)d'),
+        '[<n>] edit out dent': Key('c-[:%(n)d'),
+
+        '[<n>] tab right': Key('c-pgdown:%(n)d'),
+        '[<n>] tab left': Key('c-pgup:%(n)d'),
+
+        'file save': Key('c-s'),
+        'file open': Key('c-o'),
 
         'edit cut': Key('c-x'),
         'edit copy': Key('c-c'),

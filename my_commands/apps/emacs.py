@@ -1,4 +1,4 @@
-from dragonfly import Dictation, AppContext, Text, Key
+from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
 from breathe import Breathe, CommandContext
 
 context = CommandContext("emacs")
@@ -18,5 +18,6 @@ Breathe.add_commands(
         'edit paste': Key('c-y'),
     },
     extras = [
+        IntegerRef("n", 1, 20, default=1),
     ]
 )

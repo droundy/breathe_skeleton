@@ -5,7 +5,13 @@ from my_commands.imports import *
 
 modules = {
     "my_commands": {
-        "apps": [],
+        "apps": [
+            'emacs',
+            'terminal',
+            'atom',
+            'firefox',
+            'chrome',
+        ],
         "core": [
             "keys",
             "gnome",

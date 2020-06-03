@@ -26,8 +26,9 @@ edit_context = CommandContext("editing")
 Breathe.add_commands(
     context=edit_context,
     mapping={
-        "<n> backspace":       Key("backspace:%(n)d"),
+        "<n> back space":       Key("backspace:%(n)d"),
         "<n> delete":          Key("delete:%(n)d"),
+        "<n> space":          Key("space:%(n)d"),
     },
     extras=[
         IntegerRef("n", 1, 20, default=1),
