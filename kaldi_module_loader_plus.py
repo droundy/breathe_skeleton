@@ -142,8 +142,8 @@ def main():
     engine.connect()
 
     # Register a recognition observer
-    # observer = Observer()
-    # observer.register()
+    observer = Observer()
+    observer.register()
 
     load_sleep_wake_grammar(True)
 
