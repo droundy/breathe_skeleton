@@ -3,16 +3,16 @@ from dragonfly import Dictation, AppContext, Text, Key, \
 from breathe import Breathe, CommandContext, Exec, CommandsRef
 
 def start_inline():
-    latex_context.disable()
+    context.disable()
     inline_context.enable()
 def end_math():
     inline_context.disable()
-    latex_context.enable()
+    context.enable()
 
-latex_context = CommandContext("latex")
+context = CommandContext("latex")
 inline_context = CommandContext("inline math")
 Breathe.add_commands(
-    context = latex_context,
+    context = context,
     mapping = {
         'dictate <latex>': Text('%(latex)s\n'),
         'emphasize <latex>': Text(r'\emph{}%(latex)s}\n'),

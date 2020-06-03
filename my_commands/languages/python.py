@@ -1,6 +1,8 @@
 from dragonfly import Dictation, AppContext, Text, Key
 from breathe import Breathe, CommandContext
 
+context = CommandContext("python")
+
 keywords = [
     'for', 'in',
     'if', 'else',
@@ -25,7 +27,7 @@ Breathe.add_commands(
     # Commands will be active either when we are editing a python file
     # or after we say "enable python". pass None for the commands to be global.
     # context = AppContext(title=".py") | CommandContext("python"),
-    context = CommandContext("python"),
+    context = context,
     mapping = mapping,
     extras = [
         Dictation("snaketext", default="").lower().replace(" ", "_"),
