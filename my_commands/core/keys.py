@@ -32,5 +32,6 @@ Breathe.add_commands(
     },
     extras=[
         IntegerRef("n", 1, 20, default=1),
+        Dictation("text", default=""),
     ]
 )
