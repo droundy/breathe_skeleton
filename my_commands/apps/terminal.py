@@ -11,8 +11,10 @@ Breathe.add_commands(
     # context = AppContext(title=".py") | CommandContext("python"),
     context = context,
     mapping = {
-        'git diff': Text('git diff'),
-        'git status': Text('git diff'),
+        'window new': Key('cs-n'),
+
+        'git diff': Text('git diff\n'),
+        'git status': Text('git status\n'),
         'git commit minus a m <text>': Text('git commit -am "%(text)s"\n'),
         'git commit minus m <text>': Text('git commit -m "%(text)s"\n'),
         'git <text>': Function(lambda text: notify('unrecognized git command:', str(text))),
