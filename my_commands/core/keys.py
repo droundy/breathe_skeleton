@@ -29,6 +29,7 @@ Breathe.add_commands(
         "<n> back space":       Key("backspace:%(n)d"),
         "<n> delete":          Key("delete:%(n)d"),
         "<n> space":          Key("space:%(n)d"),
+        "dictate <text>": Text('%(text)s'),
     },
     extras=[
         IntegerRef("n", 1, 20, default=1),
