@@ -125,18 +125,21 @@ def main():
         print('microphones:', get_engine('kaldi').print_mic_list())
         exit(0)
     # Set any configuration options here as keyword arguments.
-    engine = get_engine("kaldi",
-        model_dir='kaldi_model',
-        # tmp_dir='kaldi_model_zamia.tmp',  # default for temporary directory
-        # vad_aggressiveness=3,  # default aggressiveness of VAD
-        # vad_padding_start_ms=300,  # default ms of required silence before VAD
-        vad_padding_end_ms=500,  # default ms of required silence after VAD
-        # vad_complex_padding_end_ms=500,  # default ms of required silence after VAD for complex utterances
-        input_device_index=6,  # set to an int to choose a non-default microphone
-        # auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
-        # lazy_compilation=True,  # set to True to parallelize & speed up loading
-        # cloud_dictation=None,  # set to 'gcloud' to use cloud dictation
-    )
+    if 'test' in sys.argv:
+        engine = get_engine('text')
+    else:
+        engine = get_engine("kaldi",
+            model_dir='kaldi_model',
+            # tmp_dir='kaldi_model_zamia.tmp',  # default for temporary directory
+            # vad_aggressiveness=3,  # default aggressiveness of VAD
+            # vad_padding_start_ms=300,  # default ms of required silence before VAD
+            vad_padding_end_ms=500,  # default ms of required silence after VAD
+            # vad_complex_padding_end_ms=500,  # default ms of required silence after VAD for complex utterances
+            input_device_index=6,  # set to an int to choose a non-default microphone
+            # auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
+            # lazy_compilation=True,  # set to True to parallelize & speed up loading
+            # cloud_dictation=None,  # set to 'gcloud' to use cloud dictation
+        )
 
     # Call connect() now that the engine configuration is set.
     engine.connect()
@@ -151,7 +154,8 @@ def main():
     directory.load()
 
     # Start the engine's main recognition loop
-    engine.prepare_for_recognition()
+    if 'test' not in sys.argv:
+        engine.prepare_for_recognition()
     try:
         # Loop forever
         print("Listening...")
