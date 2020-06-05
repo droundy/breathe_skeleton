@@ -29,10 +29,22 @@ def disable_contexts():
     latex.inline_context.disable()
 
     keys.edit_context.disable()
+    keys.spelling_context.disable()
 
 def notify(*text):
     print(*text)
     subprocess.run(['notify-send', ' '.join(text)])
+
+def start_browsing():
+    browse_keys.clear()
+    browse_keys.update({
+        'left': 'left',
+        'right': 'right',
+        'up': 'up',
+        'down': 'down',
+        'select': 'alt:up'
+    })
+browse_keys = DictList('browse_keys')
 
 Breathe.add_commands(
     context=None,
@@ -49,11 +61,16 @@ Breathe.add_commands(
         "window chrome": Key('win/20') + Text('chrome\n') + Function(lambda: switch_context(chrome.context)),
         "window journal": Key('win/20') + Text('xournalpp\n'),
         "window settings": Key('win/20') + Text('settings\n'),
+
+        "window browse": Key('alt:down')+ Key('tab') + Function(lambda: start_browsing()),
+        "<browse_key>": Key('%(browse_key)s') + Function(lambda browse_key: browse_keys.clear() if ':' in browse_key else None),
+
         "window close": Key('c-w'),
         "[<n>] workspace up": Key('ca-up:%(n)d'),
         "[<n>] workspace down": Key('ca-down:%(n)d'),
     },
     extras=[
         IntegerRef("n", 1, 100, default=1),
+        DictListRef('browse_key', browse_keys)
     ]
 )

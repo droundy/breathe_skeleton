@@ -1,9 +1,12 @@
 from dragonfly import Dictation, AppContext, Text, Key, IntegerRef, Function
 from breathe import Breathe, CommandContext
-
-from my_commands.core.gnome import notify
+import subprocess
 
 context = CommandContext("terminal")
+
+def notify(*text):
+    print(*text)
+    subprocess.run(['notify-send', ' '.join(text)])
 
 Breathe.add_commands(
     # Commands will be active either when we are editing a python file
@@ -15,6 +18,7 @@ Breathe.add_commands(
 
         'git diff': Text('git diff\n'),
         'git status': Text('git status\n'),
+        'git status': Text('git \n'),
         'git commit minus a m <text>': Text('git commit -am "%(text)s"\n'),
         'git commit minus m <text>': Text('git commit -m "%(text)s"\n'),
         'git <text>': Function(lambda text: notify('unrecognized git command:', str(text))),

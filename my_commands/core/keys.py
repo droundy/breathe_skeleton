@@ -36,3 +36,41 @@ Breathe.add_commands(
         Dictation("text", default=""),
     ]
 )
+
+spelling_context = CommandContext("spelling")
+
+Breathe.add_commands(
+    context=spelling_context,
+    mapping={
+        "a":       Key("a"),
+        "b":       Key("b"),
+        "c":       Key("c"),
+        "d":       Key("d"),
+        "e":       Key("e"),
+        "f":       Key("f"),
+        "g":       Key("g"),
+        "h":       Key("h"),
+        "i":       Key("i"),
+        "j":       Key("j"),
+        "k":       Key("k"),
+        "l":       Key("l"),
+        "m":       Key("m"),
+        "n":       Key("n"),
+        "o":       Key("o"),
+        "p":       Key("p"),
+        "q":       Key("q"),
+        "r":       Key("r"),
+        "s":       Key("s"),
+        "t":       Key("t"),
+        "u":       Key("u"),
+        "v":       Key("v"),
+        "w":       Key("w"),
+        "x":       Key("x"),
+        "y":       Key("y"),
+        "z":       Key("z"),
+    },
+    extras=[
+        IntegerRef("n", 1, 20, default=1),
+        Dictation("text", default=""),
+    ]
+)
