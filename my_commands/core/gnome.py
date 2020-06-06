@@ -62,7 +62,9 @@ Breathe.add_commands(
         "window journal": Key('win/20') + Text('xournalpp\n'),
         "window settings": Key('win/20') + Text('settings\n'),
 
-        "window browse": Key('alt:down')+ Key('tab') + Function(lambda: start_browsing()),
+        "window change": Key('alt:down')+ Key('tab') + Function(lambda: start_browsing()),
+        "window change select": Key('a-tab'),
+
         "<browse_key>": Key('%(browse_key)s') + Function(lambda browse_key: browse_keys.clear() if ':' in browse_key else None),
 
         "window close": Key('c-w'),
