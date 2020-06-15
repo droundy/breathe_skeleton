@@ -5,6 +5,7 @@ import my_commands.apps.firefox as firefox
 import my_commands.apps.chrome as chrome
 import my_commands.apps.atom as atom
 import my_commands.apps.emacs as emacs
+import my_commands.apps.codium as codium
 import my_commands.apps.terminal as terminal
 
 import my_commands.core.keys as keys
@@ -19,6 +20,7 @@ def switch_context(context):
     context.enable()
 
 def disable_contexts():
+    codium.context.disable()
     firefox.context.disable()
     chrome.context.disable()
     emacs.context.disable()
@@ -29,7 +31,6 @@ def disable_contexts():
     latex.inline_context.disable()
 
     keys.edit_context.disable()
-    keys.spelling_context.disable()
 
 def notify(*text):
     print(*text)
@@ -53,6 +54,8 @@ Breathe.add_commands(
                   + Function(lambda: switch_context(emacs.context), enable_context(keys.edit_context)),
         "window atom": Key('win/20') + Text('atom\n')
                   + Function(lambda: switch_context(atom.context), enable_context(keys.edit_context)),
+        "window codium": Key('win/20') + Text('codium\n')
+                  + Function(lambda: switch_context(codium.context), enable_context(keys.edit_context)),
         "window web": Key('win/20') + Text('web\n'),
         "window zoom": Key('win/20') + Text('zoom\n'),
         "window terminal": Key('win/20') + Text('gnome-terminal\n')
@@ -65,7 +68,7 @@ Breathe.add_commands(
         "window change": Key('alt:down')+ Key('tab') + Function(lambda: start_browsing()),
         "window change select": Key('a-tab'),
 
-        "<browse_key>": Key('%(browse_key)s') + Function(lambda browse_key: browse_keys.clear() if ':' in browse_key else None),
+        "<browse_key>": Key('%(browse_key)s') + Function(lambda browse_key: (browse_keys.clear(), disable_contexts()) if ':' in browse_key else None),
 
         "window close": Key('c-w'),
         "[<n>] workspace up": Key('ca-up:%(n)d'),

@@ -10,6 +10,7 @@ Breathe.add_commands(
     context = context,
     mapping = {
         'file save': Key('c-s'),
+        'file save': Key('c-s'),
 
         '[<n>] edit indent': Key('c-]:%(n)d'),
         '[<n>] edit out dent': Key('c-[%(n)d'),
@@ -24,6 +25,9 @@ Breathe.add_commands(
 
         '[<n>] tab right': Key('c-pgdown:%(n)d'),
         '[<n>] tab left': Key('c-pgup:%(n)d'),
+
+        '[<n>] move tab right': Key('cs-pgdown:%(n)d'),
+        '[<n>] move tab left': Key('cs-pgup:%(n)d'),
 
         'go to line [<NNN>]': Key('c-g') + Text('%(NNN)d\n'),
     },

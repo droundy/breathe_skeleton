@@ -22,6 +22,8 @@ Breathe.add_commands(
         'git commit minus a m <text>': Text('git commit -am "%(text)s"\n'),
         'git commit minus m <text>': Text('git commit -m "%(text)s"\n'),
         'git <text>': Function(lambda text: notify('unrecognized git command:', str(text))),
+
+        'control c': Key('c-c'),
     },
     extras = [
         IntegerRef("n", 1, 20, default=1),

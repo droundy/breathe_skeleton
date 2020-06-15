@@ -1,28 +1,48 @@
 from my_commands.imports import *
 
+def modified_directions(n, modifiers0, directions):
+    print('got', n, modifiers0, directions)
+    for m in modifiers0:
+        Key(m+':down').execute()
+    for i in range(n):
+        for d in directions:
+            Key(d).execute()
+    for m in modifiers0:
+        Key(m+':up').execute()
+
 Breathe.add_commands(
     context=None,
     mapping={
-        "<n> left":          Key("left:%(n)d"),
-        "<n> right":         Key("right:%(n)d"),
-        "<n> up":            Key("up:%(n)d"),
-        "<n> down": Key("down:%(n)d"),
+        "[<n>] <modifiers0> <directions>": Function(modified_directions),
 
-        "<n> lefts":          Key("s-left:%(n)d"),
-        "<n> rights":         Key("s-right:%(n)d"),
-        "<n> ups":            Key("s-up:%(n)d"),
-        "<n> downs": Key("s-down:%(n)d"),
+        "end of line":  Key('end'),
+        "home of line":  Key('home'),
 
         "[<n>] page down": Key("pgdown:%(n)d"),
         "[<n>] page up": Key("pgup:%(n)d"),
     },
     extras=[
         IntegerRef("n", 1, 20, default=1),
+        Repetition(Choice('modifier', {
+            'shift': 'shift',
+            'control': 'control',
+            'alt': 'alt',
+        }), name='modifiers', max=3),
+        Repetition(Choice('modifier0', {
+            'shift': 'shift',
+            'control': 'control',
+            'alt': 'alt',
+        }), name='modifiers0', min=0, max=3),
+        Repetition(Choice('direction', {
+            'left': 'left',
+            'up': 'up',
+            'down': 'down',
+            'right': 'right',
+            'home': 'home',
+            'end': 'end',
+        }), name='directions', max=10),
     ]
 )
-
-nato_alphabet = {
-}
 
 edit_context = CommandContext("editing")
 
@@ -34,9 +54,8 @@ Breathe.add_commands(
         "<n> word back space":       Key("c-backspace:%(n)d"),
         "<n> word delete":          Key("c-delete:%(n)d"),
         "<n> space":          Key("space:%(n)d"),
-        "end of line":  Key('end'),
-        "home of line":  Key('home'),
-        "free dictation <text>": Text('%(text)s'),
+
+        "dictate <text>": Text('%(text)s'),
         "spell <letters>": Function(lambda letters: Text("".join(map(str, letters))).execute()),
     },
     extras=[
@@ -45,6 +64,7 @@ Breathe.add_commands(
         Repetition(Choice('letter', {
             'space': ' ',
             'colon': ':',
+            'minus': '-',
             'semicolon': ';',
             'period': '.',
             'comma': ',',
