@@ -1,16 +1,18 @@
 import logging
 logging.basicConfig()
 
-from my_commands.imports import *
+from my_commands.imports import Breathe
 
 modules = {
     "my_commands": {
         "apps": [
             'emacs',
+            'codium',
             'terminal',
             'atom',
             'firefox',
             'chrome',
+            'gradescope',
         ],
         "core": [
             "keys",

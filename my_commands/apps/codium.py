@@ -1,7 +1,7 @@
 from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
 from breathe import Breathe, CommandContext
 
-context = CommandContext("firefox")
+context = CommandContext("codium")
 
 Breathe.add_commands(
     # Commands will be active either when we are editing a python file
@@ -9,19 +9,26 @@ Breathe.add_commands(
     # context = AppContext(title=".py") | CommandContext("python"),
     context = context,
     mapping = {
-        'page back': Key('a-left'),
-        'page forward': Key('a-right'),
-        'page reload': Key('c-r'),
+        'file save': Key('c-s'),
 
-        '[<n>] link next': Key('tab:%(n)d'),
-        '[<n>] link previous': Key('s-tab:%(n)d'),
-        'link follow': Key('enter'),
+        '[<n>] edit indent': Key('c-]:%(n)d'),
+        '[<n>] edit out dent': Key('c-[%(n)d'),
+
+        'edit cut': Key('c-x'),
+        'edit copy': Key('c-c'),
+        'edit paste': Key('c-v'),
+        'edit undo': Key('c-z'),
+
+        'toggle problem view': Key('cs-m'),
+        'problem next': Key('F8'),
 
         '[<n>] tab right': Key('c-pgdown:%(n)d'),
         '[<n>] tab left': Key('c-pgup:%(n)d'),
+
+        'go to line [<NNN>]': Key('c-g') + Text('%(NNN)d\n'),
     },
     extras = [
         IntegerRef("n", 1, 20, default=1),
-        Dictation("text", default=""),
+        IntegerRef("NNN", 1, 1000, default=1),
     ]
 )

@@ -1,4 +1,4 @@
-from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
+from dragonfly import Dictation, Text, Key, IntegerRef
 from breathe import Breathe, CommandContext
 
 context = CommandContext("chrome")
@@ -11,6 +11,7 @@ Breathe.add_commands(
     mapping = {
         'page back': Key('a-left'),
         'page forward': Key('a-right'),
+        'page reload': Key('c-r'),
 
         'search for <text>': Key('a-d/20') + Text('%(text)s\n'),
 
