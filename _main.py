@@ -12,6 +12,7 @@ modules = {
             'atom',
             'firefox',
             'chrome',
+            'gmail',
             'gradescope',
         ],
         "core": [

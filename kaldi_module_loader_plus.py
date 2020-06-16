@@ -18,7 +18,7 @@ import os.path
 import logging, subprocess, sys
 
 from dragonfly import RecognitionObserver, get_engine
-from dragonfly import Grammar, MappingRule, Function, Dictation, FuncContext
+from dragonfly import Grammar, MappingRule, Function, Dictation, FuncContext, ActionBase
 from dragonfly.loader import CommandModuleDirectory
 from dragonfly.log import setup_log
 
@@ -91,6 +91,17 @@ def load_sleep_wake_grammar(initial_awake):
         sleep(force=True)
 
 
+def load_noise_grammar():
+    noise_grammar = Grammar("noise")
+
+    noise_grammar.add_rule(MappingRule(
+        name='noise',
+        mapping = { "<text> {weight=1e8}": Function(lambda text: print('Noise: ', text)) },
+        extras = [ Dictation("text") ],
+    ))
+
+    noise_grammar.load()
+
 # --------------------------------------------------------------------------
 # Simple recognition observer class.
 
@@ -149,6 +160,7 @@ def main():
     observer.register()
 
     load_sleep_wake_grammar(True)
+    load_noise_grammar()
 
     directory = CommandModuleDirectory(path, excludes=[__file__])
     directory.load()

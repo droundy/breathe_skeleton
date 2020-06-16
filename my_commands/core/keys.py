@@ -49,10 +49,10 @@ edit_context = CommandContext("editing")
 Breathe.add_commands(
     context=edit_context,
     mapping={
-        "<n> back space":       Key("backspace:%(n)d"),
-        "<n> delete":          Key("delete:%(n)d"),
-        "<n> word back space":       Key("c-backspace:%(n)d"),
-        "<n> word delete":          Key("c-delete:%(n)d"),
+        "[<n>] back space":       Key("backspace:%(n)d"),
+        "[<n>] delete":          Key("delete:%(n)d"),
+        "[<n>] word back space":       Key("c-backspace:%(n)d"),
+        "[<n>] word delete":          Key("c-delete:%(n)d"),
         "<n> space":          Key("space:%(n)d"),
 
         "dictate <text>": Text('%(text)s'),
@@ -64,10 +64,13 @@ Breathe.add_commands(
         Repetition(Choice('letter', {
             'space': ' ',
             'colon': ':',
+            'equals': '=',
             'minus': '-',
             'semicolon': ';',
             'period': '.',
             'comma': ',',
+            'open parenthesis': '(',
+            'close parenthesis': ')',
             'double quote': '"',
             'single quote': "'",
             'new line': '\n',

@@ -1,7 +1,7 @@
 from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
 from breathe import Breathe, CommandContext
 
-context = CommandContext("firefox")
+context = CommandContext("gmail")
 
 Breathe.add_commands(
     # Commands will be active either when we are editing a python file
@@ -9,17 +9,14 @@ Breathe.add_commands(
     # context = AppContext(title=".py") | CommandContext("python"),
     context = context,
     mapping = {
-        'page back': Key('a-left'),
-        'page forward': Key('a-right'),
-        'page reload': Key('c-r'),
-
-        '[<n>] link next': Key('tab:%(n)d'),
-        '[<n>] link previous': Key('s-tab:%(n)d'),
-        'link follow': Key('enter'),
-
-        '[<n>] tab right': Key('c-pgdown:%(n)d'),
-        '[<n>] tab left': Key('c-pgup:%(n)d'),
-        'tab new': Key('c-t'),
+        'message select': Key('x'),
+        'message archive': Key('e'),
+        'message delete': Key('#'),
+        'message reply': Key('r'),
+        'message reply all': Key('a'),
+        'message send': Key('c-enter'),
+        '[<n>] message next': Key('j:%(n)d'),
+        '[<n>] message previous': Key('k:%(n)d'),
     },
     extras = [
         IntegerRef("n", 1, 20, default=1),

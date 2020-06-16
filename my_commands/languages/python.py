@@ -4,8 +4,8 @@ from breathe import Breathe, CommandContext
 context = CommandContext("python")
 
 keywords = [
-    'for', 'in',
-    'if', 'else',
+    # 'for', 'in',
+    # 'if', 'else',
     'import', 'from', 'def', 'class', 'pass', 'return',
 ]
 functions = ['range', 'print']
@@ -13,7 +13,7 @@ functions = ['range', 'print']
 mapping = {
     'colon': Text(':\n'),
     'comma': Text(', '),
-    '(ell if|else if)': Text('elif '),
+    # '(ell if|else if)': Text('elif '),
     "snake case [<snaketext>]" : Text("%(snaketext)s"),
     "screaming snake case [<screamingsnaketext>]" : Text("%(screamingsnaketext)s"),
     "Camel Case [<CamelText>]"  : Text("%(CamelText)s"),
