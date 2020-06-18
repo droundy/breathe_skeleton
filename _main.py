@@ -17,7 +17,8 @@ modules = {
         ],
         "core": [
             "keys",
-            "gnome",
+            "kde",
+            # "gnome",
             # "alphanumeric",
         ],
         "languages": ['python', 'latex'],

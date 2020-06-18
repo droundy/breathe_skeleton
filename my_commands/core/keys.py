@@ -13,7 +13,7 @@ def modified_directions(n, modifiers0, directions):
 Breathe.add_commands(
     context=None,
     mapping={
-        "[<n>] <modifiers0> <directions>": Function(modified_directions),
+        "[<n>] <modifiers0> <directions> {weight=1e-4}": Function(modified_directions),
 
         "end of line":  Key('end'),
         "home of line":  Key('home'),
@@ -53,7 +53,7 @@ Breathe.add_commands(
         "[<n>] delete":          Key("delete:%(n)d"),
         "[<n>] word back space":       Key("c-backspace:%(n)d"),
         "[<n>] word delete":          Key("c-delete:%(n)d"),
-        "<n> space":          Key("space:%(n)d"),
+        # "<n> space":          Key("space:%(n)d"),
 
         "dictate <text>": Text('%(text)s'),
         "spell <letters>": Function(lambda letters: Text("".join(map(str, letters))).execute()),
@@ -74,6 +74,16 @@ Breathe.add_commands(
             'double quote': '"',
             'single quote': "'",
             'new line': '\n',
+            'zero': '0',
+            'one': '1',
+            'two': '2',
+            'three': '3',
+            'four': '4',
+            'five': '5',
+            'six': '6',
+            'seven': '7',
+            'eight': '8',
+            'niner': '9',
             # NATO alphabet
             "alpha": "a",
             "bravo": "b",
