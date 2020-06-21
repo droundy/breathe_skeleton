@@ -7,13 +7,14 @@ Breathe.add_commands(
     # Commands will be active either when we are editing a python file
     # or after we say "enable python". pass None for the commands to be global.
     # context = AppContext(title=".py") | CommandContext("python"),
-    context = context,
+    context = AppContext(title='Gmail') | context,
     mapping = {
         'message select': Key('x'),
         'message archive': Key('e'),
         'message delete': Key('#'),
         'message reply': Key('r'),
         'message reply all': Key('a'),
+        'message view': Key('enter'),
         'message send': Key('c-enter'),
         '[<n>] message next': Key('j:%(n)d'),
         '[<n>] message previous': Key('k:%(n)d'),

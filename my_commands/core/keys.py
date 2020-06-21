@@ -13,7 +13,7 @@ def modified_directions(n, modifiers0, directions):
 Breathe.add_commands(
     context=None,
     mapping={
-        "[<n>] <modifiers0> <directions> {weight=1e-4}": Function(modified_directions),
+        "[<n>] <modifiers0> <directions> {weight=1e-2}": Function(modified_directions),
 
         "end of line":  Key('end'),
         "home of line":  Key('home'),
@@ -47,7 +47,7 @@ Breathe.add_commands(
 edit_context = CommandContext("editing")
 
 Breathe.add_commands(
-    context=edit_context,
+    context=AppContext('codium') | edit_context,
     mapping={
         "[<n>] back space":       Key("backspace:%(n)d"),
         "[<n>] delete":          Key("delete:%(n)d"),
@@ -63,6 +63,7 @@ Breathe.add_commands(
         Dictation("text", default=""),
         Repetition(Choice('letter', {
             'space': ' ',
+            'ampersand': '&',
             'colon': ':',
             'equals': '=',
             'minus': '-',

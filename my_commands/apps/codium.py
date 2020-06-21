@@ -10,7 +10,7 @@ Breathe.add_commands(
     context = AppContext('codium') | context,
     mapping = {
         'file save': Key('c-s'),
-        'file open': Key('c-o'),
+        'file open': Key('cs-e'),
 
         '[<n>] edit indent': Key('c-]:%(n)d'),
         '[<n>] edit out dent': Key('c-[%(n)d'),

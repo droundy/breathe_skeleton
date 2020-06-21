@@ -96,7 +96,7 @@ def load_noise_grammar():
 
     noise_grammar.add_rule(MappingRule(
         name='noise',
-        mapping = { "<text> {weight=1e5}": Function(lambda text: print('Noise: ', text)) },
+        mapping = { "<text> {weight=10}": Function(lambda text: print('Noise: ', text)) },
         extras = [ Dictation("text") ],
     ))
 

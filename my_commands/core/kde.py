@@ -36,6 +36,10 @@ def notify(*text):
     print(*text)
     subprocess.run(['notify-send', ' '.join(text)])
 
+def window_properties():
+    notify('executable:', Window.get_foreground().executable)
+    notify('title:', Window.get_foreground().title)
+
 def start_browsing():
     browse_keys.clear()
     browse_keys.update({
@@ -87,6 +91,8 @@ Breathe.add_commands(
         # "<browse_key>": Key('%(browse_key)s') + Function(lambda browse_key: (browse_keys.clear(), disable_contexts()) if browse_key in ['escape'] else None),
 
         "window close": Key('c-w'),
+
+        "window properties": Function(window_properties),
     },
     extras=[
         IntegerRef("n", 1, 100, default=1),
