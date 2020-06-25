@@ -1,4 +1,4 @@
-from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
+from dragonfly import Dictation, AppContext, Text, Key, IntegerRef, Dictation
 from breathe import Breathe, CommandContext
 
 context = CommandContext("codium")
@@ -13,7 +13,7 @@ Breathe.add_commands(
         'file open': Key('cs-e'),
 
         '[<n>] edit indent': Key('c-]:%(n)d'),
-        '[<n>] edit out dent': Key('c-[%(n)d'),
+        '[<n>] edit out dent': Key('c-[:%(n)d'),
 
         'edit cut': Key('c-x'),
         'edit copy': Key('c-c'),
@@ -29,10 +29,14 @@ Breathe.add_commands(
         '[<n>] move tab right': Key('cs-pgdown:%(n)d'),
         '[<n>] move tab left': Key('cs-pgup:%(n)d'),
 
+        'find <text>': Key('c-f/20') + Text('%(text)s'),
+        'match next': Key('enter'),
+        'match previous': Key('s-enter'),
         'go to line [<NNN>]': Key('c-g') + Text('%(NNN)d\n'),
     },
     extras = [
         IntegerRef("n", 1, 20, default=1),
         IntegerRef("NNN", 1, 1000, default=1),
+        Dictation("text", default=""),
     ]
 )

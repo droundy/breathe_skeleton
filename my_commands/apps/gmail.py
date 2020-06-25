@@ -1,7 +1,11 @@
-from dragonfly import Dictation, AppContext, Text, Key, IntegerRef
+from dragonfly import Dictation, AppContext, Text, Key, IntegerRef, Choice, Repetition, Function
 from breathe import Breathe, CommandContext
 
 context = CommandContext("gmail")
+
+def do_commands(commands):
+    for c in commands:
+        Key(c).execute()
 
 Breathe.add_commands(
     # Commands will be active either when we are editing a python file
@@ -9,17 +13,22 @@ Breathe.add_commands(
     # context = AppContext(title=".py") | CommandContext("python"),
     context = AppContext(title='Gmail') | context,
     mapping = {
-        'message select': Key('x'),
-        'message archive': Key('e'),
-        'message delete': Key('#'),
-        'message reply': Key('r'),
-        'message reply all': Key('a'),
-        'message view': Key('enter'),
-        'message send': Key('c-enter'),
+        'message <commands>': Function(do_commands),
         '[<n>] message next': Key('j:%(n)d'),
         '[<n>] message previous': Key('k:%(n)d'),
     },
     extras = [
+        Repetition(Choice('message', {
+            'select': 'x',
+            'next': 'k',
+            'previous': 'j',
+            'archive': 'e',
+            'delete': '#',
+            'reply': 'r',
+            'reply all': 'a',
+            'send': 'c-enter',
+            'view': 'enter',
+        }), name='commands', max=20),
         IntegerRef("n", 1, 20, default=1),
         Dictation("text", default=""),
     ]

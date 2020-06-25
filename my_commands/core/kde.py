@@ -79,7 +79,7 @@ Breathe.add_commands(
         "workspace dragonfly": Key('c-f4'),
         "workspace monte carlo": Key('cs-f5'),
         "workspace paper": Key('cs-f6'),
-        "workspace southwest": Key('cs-f7'),
+        "workspace dynein": Key('cs-f7'),
         "workspace south": Key('cs-f8'),
         "workspace southeast": Key('cs-f9'),
 

@@ -13,7 +13,7 @@ Breathe.add_commands(
         'page forward': Key('a-right'),
         'page reload': Key('c-r'),
 
-        'chrome search for <text>': Key('a-d/20') + Text('%(text)s\n'),
+        'search for <text>': Key('a-d/20') + Text('%(text)s\n'),
 
         'tab new': Key('c-t'),
         'tab close': Key('c-w'),

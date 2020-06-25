@@ -21,7 +21,7 @@ modules = {
             # "gnome",
             # "alphanumeric",
         ],
-        "languages": ['python', 'latex'],
+        "languages": ['rust', 'python', 'latex'],
     }
 }
 
