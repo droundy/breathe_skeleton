@@ -20,6 +20,7 @@ Breathe.add_commands(
         'edit paste': Key('c-v'),
         'edit undo': Key('c-z'),
 
+        'format document': Key('cs-i'),
         'toggle problem view': Key('cs-m'),
         'problem next': Key('F8'),
 

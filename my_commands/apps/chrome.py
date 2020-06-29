@@ -11,7 +11,7 @@ Breathe.add_commands(
     mapping = {
         'page back': Key('a-left'),
         'page forward': Key('a-right'),
-        'page reload': Key('c-r'),
+        'page reload': Key('cs-r'),
 
         'search for <text>': Key('a-d/20') + Text('%(text)s\n'),
 

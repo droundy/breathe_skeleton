@@ -80,8 +80,8 @@ Breathe.add_commands(
         "workspace monte carlo": Key('cs-f5'),
         "workspace paper": Key('cs-f6'),
         "workspace dynein": Key('cs-f7'),
-        "workspace south": Key('cs-f8'),
-        "workspace southeast": Key('cs-f9'),
+        "workspace website": Key('cs-f8'),
+        "workspace fun": Key('cs-f9'),
 
         "window switch": Key('a-tab'),
         # "window cycle": Key('alt:down')+ Key('tab') + Function(lambda: start_browsing()),

@@ -77,6 +77,7 @@ Breathe.add_commands(
             'period': '.',
             'comma': ',',
             'bang': '!',
+            'bitwise or': '|',
             'question': '?',
             'underscore': '_',
             'open parenthesis': '(',
