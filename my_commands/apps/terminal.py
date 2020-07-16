@@ -17,6 +17,7 @@ Breathe.add_commands(
 
         'git diff': Text('git diff\n'),
         'git pull': Text('git pull\n'),
+        'git log': Text('git log --graph\n'),
         'git push': Text('git push\n'),
         'git status': Text('git status\n'),
         'git add': Text('git add '),
@@ -28,8 +29,10 @@ Breathe.add_commands(
         'cargo test': Text('cargo test\n'),
         'cargo check': Text('cargo check\n'),
         'cargo bench': Text('cargo bench\n'),
+        'cargo outdated': Text('cargo outdated -R\n'),
+        'cargo tarpaulin': Text('cargo tarpaulin\n'),
 
-        'codium here': Text('codium -n --folder-uri `pwd` &\n'),
+        'codium here': Text('code -n --folder-uri `pwd` &\n'),
 
         'control c': Key('c-c'),
         'complete me': Key('tab'),

@@ -47,7 +47,7 @@ Breathe.add_commands(
 edit_context = CommandContext("editing")
 
 Breathe.add_commands(
-    context=AppContext('codium') | edit_context,
+    context=AppContext('codium') | AppContext('code') | edit_context,
     mapping={
         "[<n>] back space":       Key("backspace:%(n)d"),
         "[<n>] delete":          Key("delete:%(n)d"),
@@ -72,13 +72,16 @@ Breathe.add_commands(
             'minus': '-',
             'plus': '+',
             'slash': '/',
+            'backslash': '\\',
             'star': '*',
             'semicolon': ';',
-            'period': '.',
+            '(period|dot)': '.',
             'comma': ',',
+            'carrot': '^',
             'bang': '!',
             'bitwise or': '|',
             'question': '?',
+            'dollar': '$',
             'underscore': '_',
             'open parenthesis': '(',
             'close parenthesis': ')',

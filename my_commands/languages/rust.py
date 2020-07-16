@@ -1,4 +1,4 @@
-from dragonfly import Dictation, AppContext, Text, Key
+from dragonfly import Dictation, AppContext, Text
 from breathe import Breathe, CommandContext
 
 context = CommandContext("rust")
@@ -22,6 +22,7 @@ mapping = {
     'define function': Text('fn '),
     'ice sixty four': Text('i64'),
     'struct': Text('struct '),
+    'function': Text('fn '),
     'e numb': Text('enum '),
     'it er': Text('iter()'),
     'imple': Text('impl '),
@@ -33,7 +34,7 @@ mapping = {
     "camel case [<CamelText>]"  : Text("%(CamelText)s"),
 }
 for k in keywords:
-    mapping[k] = Text(k + ' ');
+    mapping[k] = Text(k + ' ')
 
 Breathe.add_commands(
     # Commands will be active either when we are editing a python file
