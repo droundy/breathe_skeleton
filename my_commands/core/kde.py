@@ -82,6 +82,7 @@ Breathe.add_commands(
         "workspace dynein": Key('cs-f7'),
         "workspace website": Key('cs-f8'),
         "workspace fun": Key('cs-f9'),
+        "workspace extra": Key('cs-f10'),
 
         "window switch": Key('a-tab'),
         # "window cycle": Key('alt:down')+ Key('tab') + Function(lambda: start_browsing()),
