@@ -40,6 +40,7 @@ Breathe.add_commands(
             'right': 'right',
             'home': 'home',
             'end': 'end',
+            'tab key': 'tab',
         }), name='directions', max=10),
     ]
 )
