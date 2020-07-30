@@ -35,6 +35,7 @@ if False:
     logging.getLogger('kaldi.compiler').setLevel(10)
 else:
     setup_log()
+    # logging.getLogger('kaldi.compiler').setLevel(2)
 
 
 # --------------------------------------------------------------------------
