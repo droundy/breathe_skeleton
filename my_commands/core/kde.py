@@ -24,9 +24,14 @@ def window_properties():
 Breathe.add_commands(
     context=None,
     mapping={
-        "window terminal": Key('a-f2/20') + Text('gnome-terminal') + Key('enter'),
-        "window chrome": Key('a-f2/20') + Text('google-chrome') + Key('enter'),
-        "window journal": Key('a-f2/20') + Text('xournalpp') + Key('enter'),
+        # "window terminal": Key('a-f2/20') + Text('gnome-terminal') + Key('enter'),
+        # "window chrome": Key('a-f2/20') + Text('google-chrome') + Key('enter'),
+        # "window journal": Key('a-f2/20') + Text('xournalpp') + Key('enter'),
+        "window full screen": Key('w-pageup'),
+        "window full left": Key('w-left'),
+        "window full right": Key('w-right'),
+        "window full up": Key('w-up'),
+        "window full down": Key('w-down'),
 
         "workspace grid": Key('c-f8')+ Function(lambda: start_browsing()),
         "workspace gmail": Key('alt:up') + Key('c-f1'),

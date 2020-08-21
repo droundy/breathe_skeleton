@@ -28,6 +28,7 @@ Breathe.add_commands(
             'reply all': 'a',
             'send': 'c-enter',
             'view': 'enter',
+            'compose': 'c',
         }), name='commands', max=20),
         IntegerRef("n", 1, 20, default=1),
         Dictation("text", default=""),
