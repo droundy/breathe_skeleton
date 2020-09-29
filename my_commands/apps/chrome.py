@@ -13,7 +13,12 @@ Breathe.add_commands(
         'page forward': Key('a-right'),
         'page reload': Key('cs-r'),
 
-        'search for <text>': Key('a-d/20') + Text('%(text)s\n'),
+        'search for <text>': Key('a-d/20') + Text('%(text)s'),
+
+        'edit cut': Key('c-x'),
+        'edit copy': Key('c-c'),
+        'edit paste': Key('c-v'),
+        'edit undo': Key('c-z'),
 
         'tab new': Key('c-t'),
         'tab close': Key('c-w'),
