@@ -1,7 +1,7 @@
+from my_commands.imports import Breathe
 import logging
 logging.basicConfig()
 
-from my_commands.imports import Breathe
 
 modules = {
     "my_commands": {
@@ -21,7 +21,11 @@ modules = {
             # "gnome",
             # "alphanumeric",
         ],
-        "languages": ['rust', 'python', 'latex'],
+        "languages": [
+            'rust',
+            'python',
+            'latex'
+        ],
     }
 }
 
