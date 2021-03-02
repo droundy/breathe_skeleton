@@ -72,26 +72,26 @@ Breathe.add_commands(
 
 # fraction sin x ^2squared divided by 3 + x
 #  \frac{\sin(x^2)}{3+x}
-Breathe.add_commands(
-    context=context,
-    mapping={
-       "<expr1> frac <expr2> over <expr3>":
-            Exec("expr1") + Text("\\frac{") + Exec("expr2") + Text("}{") + Exec("expr3") + Text("}"),
-       "<expr1> over <expr2>":
-           Text("\\frac{") + Exec("expr1") + Text("}{") + Exec("expr2") + Text("}"),
-       "<expr1> of <expr2>":
-           Exec("expr1") + Text("\\left(") + Exec("expr2") + Text("\\right)"),
-       "<expr1> e to the <expr2>":
-           Exec("expr1") + Text(" e^{") + Exec("expr2") + Text("}"),
-        'end math': Text('$')+Function(end_math),
-    },
-    extras = [
-        CommandsRef("expr1", 8),
-        CommandsRef("expr2", 8),
-        CommandsRef("expr3", 8),
-    ],
-    top_level=True,
-)
+# Breathe.add_commands(
+#     context=context,
+#     mapping={
+#        "<expr1> frac <expr2> over <expr3>":
+#             Exec("expr1") + Text("\\frac{") + Exec("expr2") + Text("}{") + Exec("expr3") + Text("}"),
+#        "<expr1> over <expr2>":
+#            Text("\\frac{") + Exec("expr1") + Text("}{") + Exec("expr2") + Text("}"),
+#        "<expr1> of <expr2>":
+#            Exec("expr1") + Text("\\left(") + Exec("expr2") + Text("\\right)"),
+#        "<expr1> e to the <expr2>":
+#            Exec("expr1") + Text(" e^{") + Exec("expr2") + Text("}"),
+#         'end math': Text('$')+Function(end_math),
+#     },
+#     extras = [
+#         CommandsRef("expr1", 8),
+#         CommandsRef("expr2", 8),
+#         CommandsRef("expr3", 8),
+#     ],
+#     top_level=True,
+# )
 variable = Choice("variable", {
     })
 nth = Choice("nth", {

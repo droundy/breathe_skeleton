@@ -24,7 +24,7 @@ modules = {
         "languages": [
             'rust',
             'python',
-            'latex'
+            'latex',
         ],
     }
 }

@@ -26,13 +26,20 @@ Breathe.add_commands(
         'git <text>': Function(lambda text: notify('unrecognized git command:', str(text))),
         
         'cargo build': Text('cargo build\n'),
+        'cargo build release': Text('cargo build --release\n'),
         'cargo test': Text('cargo test\n'),
         'cargo check': Text('cargo check\n'),
         'cargo bench': Text('cargo bench\n'),
         'cargo outdated': Text('cargo outdated -R\n'),
         'cargo tarpaulin': Text('cargo tarpaulin\n'),
 
+        'r q': Text('rq\n'),
+        'r q run': Text('rq run '),
+        'r q cancel all': Text('rq cancel --all\n'),
+
         'codium here': Text('code -n --folder-uri `pwd` &\n'),
+
+        'cd': Text('cd '),
 
         'control c': Key('c-c'),
         'complete me': Key('tab'),
