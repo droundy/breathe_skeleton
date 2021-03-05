@@ -68,8 +68,12 @@ def load_sleep_wake_grammar(initial_awake):
             sleep_grammar.set_exclusiveness(False)
         notify('Awake...')
 
+    def halt(force=False):
+        exit(0)
+
     class SleepRule(MappingRule):
         mapping = {
+            'dragonfly exit': Function(halt),
         "start listening":  Function(wake) + Function(lambda: get_engine().start_saving_adaptation_state()),
             "stop listening":   Function(lambda: get_engine().stop_saving_adaptation_state()) + Function(sleep),
             "halt listening":   Function(lambda: get_engine().stop_saving_adaptation_state()) + Function(sleep),
