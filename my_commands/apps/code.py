@@ -1,13 +1,13 @@
 from dragonfly import Dictation, AppContext, Text, Key, IntegerRef, Dictation
 from breathe import Breathe, CommandContext
 
-context = CommandContext("codium")
+context = CommandContext("code")
 
 Breathe.add_commands(
     # Commands will be active either when we are editing a python file
     # or after we say "enable python". pass None for the commands to be global.
     # context = AppContext(title=".py") | CommandContext("python"),
-    context=AppContext('codium') | AppContext('code') | context,
+    context=AppContext('code') | context,
     mapping={
         'file save': Key('c-s'),
         'file open': Key('c-o'),

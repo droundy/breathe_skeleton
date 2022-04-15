@@ -3,7 +3,7 @@ from my_commands.imports import *
 import subprocess
 import my_commands.apps.firefox as firefox
 import my_commands.apps.chrome as chrome
-import my_commands.apps.codium as codium
+import my_commands.apps.code as code
 import my_commands.apps.terminal as terminal
 
 import my_commands.core.keys as keys
@@ -18,7 +18,7 @@ def switch_context(context):
     context.enable()
 
 def disable_contexts():
-    codium.context.disable()
+    code.context.disable()
     firefox.context.disable()
     chrome.context.disable()
     terminal.context.disable()
@@ -47,7 +47,7 @@ Breathe.add_commands(
     context=None,
     mapping={
         "window vee ess code": Key('win/20') + Text('code\n')
-                  + Function(lambda: switch_context(codium.context), enable_context(keys.edit_context)),
+                  + Function(lambda: switch_context(code.context), enable_context(keys.edit_context)),
         "window web": Key('win/20') + Text('web\n'),
         "window zoom": Key('win/20') + Text('zoom\n'),
         "window terminal": Key('win/20') + Text('gnome-terminal\n')
