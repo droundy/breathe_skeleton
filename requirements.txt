@@ -1,9 +1,33 @@
-dragonfly2[kaldi]
-dfly-breathe
-g2p_en
-py-notifier
-# six
-# future
-# wxpython
-# pywin32
-# setuptools
+certifi==2021.10.8
+cffi==1.15.0
+charset-normalizer==2.0.12
+click==8.1.2
+decorator==5.1.1
+dfly-breathe==0.2.4
+Distance==0.1.3
+dragonfly2==0.35.0
+g2p-en==2.1.0
+idna==3.3
+inflect==5.5.2
+joblib==1.1.0
+json-rpc==1.13.0
+kaldi-active-grammar==3.1.0
+lark-parser==0.8.9
+nltk==3.7
+numpy==1.22.3
+packaging==21.3
+pkg_resources==0.0.0
+psutil==5.9.0
+py-notifier==0.3.2
+pycparser==2.21
+pyparsing==3.0.8
+pyperclip==1.8.2
+regex==2022.3.15
+requests==2.27.1
+six==1.16.0
+sounddevice==0.3.15
+tqdm==4.64.0
+urllib3==1.26.9
+ush==3.1.0
+webrtcvad-wheels==2.0.10.post2
+Werkzeug==2.1.1
