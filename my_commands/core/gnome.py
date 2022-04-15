@@ -3,8 +3,6 @@ from my_commands.imports import *
 import subprocess
 import my_commands.apps.firefox as firefox
 import my_commands.apps.chrome as chrome
-import my_commands.apps.atom as atom
-import my_commands.apps.emacs as emacs
 import my_commands.apps.codium as codium
 import my_commands.apps.terminal as terminal
 
@@ -23,8 +21,6 @@ def disable_contexts():
     codium.context.disable()
     firefox.context.disable()
     chrome.context.disable()
-    emacs.context.disable()
-    atom.context.disable()
     terminal.context.disable()
 
     latex.context.disable()
@@ -50,11 +46,7 @@ browse_keys = DictList('browse_keys')
 Breathe.add_commands(
     context=None,
     mapping={
-        "window emacs": Key('win/20') + Text('emacs\n')
-                  + Function(lambda: switch_context(emacs.context), enable_context(keys.edit_context)),
-        "window atom": Key('win/20') + Text('atom\n')
-                  + Function(lambda: switch_context(atom.context), enable_context(keys.edit_context)),
-        "window codium": Key('win/20') + Text('codium\n')
+        "window vee ess code": Key('win/20') + Text('code\n')
                   + Function(lambda: switch_context(codium.context), enable_context(keys.edit_context)),
         "window web": Key('win/20') + Text('web\n'),
         "window zoom": Key('win/20') + Text('zoom\n'),
