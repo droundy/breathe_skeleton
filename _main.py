@@ -6,19 +6,16 @@ logging.basicConfig()
 modules = {
     "my_commands": {
         "apps": [
-            'emacs',
-            'codium',
+            'code',
             'terminal',
-            'atom',
             'firefox',
             'chrome',
             'gmail',
-            'gradescope',
         ],
         "core": [
             "keys",
-            "kde",
-            # "gnome",
+            # "kde",
+            "gnome",
             # "alphanumeric",
         ],
         "languages": [

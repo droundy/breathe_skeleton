@@ -22,6 +22,8 @@ from dragonfly import Grammar, MappingRule, Function, Dictation, FuncContext, Ac
 from dragonfly.loader import CommandModuleDirectory
 from dragonfly.log import setup_log
 
+from pynotifier import Notification
+
 from sounddevice import query_devices
 
 
@@ -46,7 +48,13 @@ else:
 # For message in ('sleep', 'wake')
 def notify(*text):
     print(*text)
-    subprocess.run(['notify-send', ' '.join(text)])
+    Notification(
+        title=' '.join(text),
+        # description='Notification Description',
+        # icon_path='/absolute/path/to/image/icon.png', # On Windows .ico is required, on Linux - .png
+        duration=1, # Duration in seconds
+        urgency='low'
+    ).send()
 
 # --------------------------------------------------------------------------
 # Sleep/wake grammar.
