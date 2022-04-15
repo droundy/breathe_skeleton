@@ -164,7 +164,7 @@ def main():
             vad_padding_end_ms=500,  # default ms of required silence after VAD
             # vad_complex_padding_end_ms=500,  # default ms of required silence after VAD for complex utterances
             audio_input_device=mic,
-            # auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
+            auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
             # lazy_compilation=True,  # set to True to parallelize & speed up loading
             # cloud_dictation=None,  # set to 'gcloud' to use cloud dictation
         )

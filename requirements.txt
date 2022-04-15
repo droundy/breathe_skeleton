@@ -1,5 +1,6 @@
 dragonfly2[kaldi]
 dfly-breathe
+g2p_en
 # six
 # future
 # wxpython
