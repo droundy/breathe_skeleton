@@ -37,7 +37,7 @@ Breathe.add_commands(
         'r q run': Text('rq run '),
         'r q cancel all': Text('rq cancel --all\n'),
 
-        'codium here': Text('code -n --folder-uri `pwd` &\n'),
+        'open vee ess code': Text('code .\n'),
 
         'cd': Text('cd '),
 
