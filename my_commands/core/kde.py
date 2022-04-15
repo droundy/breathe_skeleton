@@ -2,10 +2,6 @@ from my_commands.imports import *
 
 import subprocess
 
-def notify(*text):
-    print(*text)
-    subprocess.run(['notify-send', ' '.join(text)])
-
 def window_properties():
     notify('executable:', Window.get_foreground().executable)
     notify('title:', Window.get_foreground().title)
