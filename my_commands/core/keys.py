@@ -52,8 +52,8 @@ Breathe.add_commands(
     mapping={
         "[<n>] back space":       Key("backspace:%(n)d"),
         "[<n>] delete":          Key("delete:%(n)d"),
-        "[<n>] word back space":       Key("c-backspace:%(n)d"),
-        "[<n>] word delete":          Key("c-delete:%(n)d"),
+        "[<n>] control back space":       Key("c-backspace:%(n)d"),
+        "[<n>] control delete":          Key("c-delete:%(n)d"),
         # "<n> space":          Key("space:%(n)d"),
 
         "dictate <text>": Text('%(text)s'),
