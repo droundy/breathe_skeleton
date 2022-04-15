@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -ev
+
+echo This script installs the proper language model
+
+# ensure we are in the proper directory
+test -f install/create_venv
+
+rm -rf kaldi_model
+
+curl -L -o model.zip "https://github.com/daanzu/kaldi-active-grammar/releases/download/v3.1.0/kaldi_model_daanzu_20211030-biglm.zip"
+unzip model.zip kaldi_model/*
+rm model.zip

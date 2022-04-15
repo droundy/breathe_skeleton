@@ -1,7 +1,7 @@
-dragonfly2
+dragonfly2[kaldi]
 dfly-breathe
-six
-future
-wxpython
-pywin32
-setuptools
+# six
+# future
+# wxpython
+# pywin32
+# setuptools

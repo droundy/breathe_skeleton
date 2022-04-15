@@ -22,6 +22,8 @@ from dragonfly import Grammar, MappingRule, Function, Dictation, FuncContext, Ac
 from dragonfly.loader import CommandModuleDirectory
 from dragonfly.log import setup_log
 
+from sounddevice import query_devices
+
 
 # --------------------------------------------------------------------------
 # Set up basic logging.
@@ -144,6 +146,16 @@ def main():
     if 'test' in sys.argv:
         engine = get_engine('text')
     else:
+        for d in query_devices():
+            mic = None
+            if len([preferred for preferred in ["Blue", "Meteor", "webcam"] if preferred in d['name']]) > 0:
+                mic = d['name']
+                print('Using', mic)
+                break
+        if mic is None:
+            print('None of your prefered microphones are installed!')
+            print(query_devices())
+            exit()
         engine = get_engine("kaldi",
             model_dir='kaldi_model',
             # tmp_dir='kaldi_model_zamia.tmp',  # default for temporary directory
@@ -151,7 +163,7 @@ def main():
             # vad_padding_start_ms=300,  # default ms of required silence before VAD
             vad_padding_end_ms=500,  # default ms of required silence after VAD
             # vad_complex_padding_end_ms=500,  # default ms of required silence after VAD for complex utterances
-            audio_input_device='Blue',
+            audio_input_device=mic,
             # auto_add_to_user_lexicon=True,  # set to True to possibly use cloud for pronunciations
             # lazy_compilation=True,  # set to True to parallelize & speed up loading
             # cloud_dictation=None,  # set to 'gcloud' to use cloud dictation
